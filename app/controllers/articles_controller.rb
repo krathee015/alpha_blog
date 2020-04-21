@@ -8,11 +8,17 @@ class ArticlesController<ApplicationController
     end
     
     def new
-        
+    
     end 
 
     def create
-        render plain: params[:article]
+        #render plain: params[:article]
+        @a_create = Article.new(params.require(:article).permit(:title))
+        #render plain: @a_create.inspect
+        @a_create.save
+        #redirect_to article_path(@a_create)
+        redirect_to(@a_create) #shortcut 
+
     end
 
 
