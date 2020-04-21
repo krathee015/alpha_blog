@@ -17,6 +17,7 @@ class ArticlesController<ApplicationController
         #render plain: @a_create.inspect
         if @a_create.save
         #redirect_to article_path(@a_create)
+            flash[:notice] = "Article was created successfully"    
             redirect_to(@a_create) #shortcut 
         else 
             render 'new'
