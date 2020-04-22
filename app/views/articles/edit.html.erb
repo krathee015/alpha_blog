@@ -1,0 +1,20 @@
+<h1> Editing an Article </h1>
+
+<% if @a_create.errors.any? %>  
+    <h1> The following errors prevented the articles from being saved </h1>
+    <ul>
+        <% @a_create.errors.full_messages.each do |msg|%>
+            <li><%= msg%> </li>
+        <%end%>
+    </ul>
+<%end%>
+<%= form_with(model: @a_create, local: true) do |f| %>
+    <p>
+        <%= f.label :title %></br>
+        <%= f.text_field :title%>
+    </p>
+
+    <p>
+        <%= f.submit%>
+    </p>
+<% end %>
