@@ -39,7 +39,12 @@ class ArticlesController<ApplicationController
             render 'edit'
         end
     end
-
+    def destroy
+        #byebug
+        @a_destroy = Article.find(params[:id])
+        @a_destroy.destroy
+        redirect_to articles_path
+    end
 
 
 end

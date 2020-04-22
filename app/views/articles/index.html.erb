@@ -11,7 +11,7 @@
         <% @a_index.each do |a| %>
         <tr>
             <td><%= a.title%> </td>
-            <td>nothing yet </td>
+            <td><%= link_to 'Delete', article_path(a), method: :delete %> </td>
         </tr>
         <% end%>
     </tbody>
