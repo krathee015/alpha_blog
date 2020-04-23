@@ -41,6 +41,7 @@ class ArticlesController<ApplicationController
             render 'edit'
         end
     end
+
     def destroy
         #byebug
         @article.destroy
@@ -54,7 +55,7 @@ class ArticlesController<ApplicationController
     end
 
     def article_pramas
-        params.require(:article).permit(:title)
+        params.require(:article).permit(:title, :description)
     end 
 
 end
