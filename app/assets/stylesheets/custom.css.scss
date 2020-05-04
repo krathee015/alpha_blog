@@ -1,6 +1,48 @@
 @import 'bootstrap/dist/css/bootstrap';
 .navbar {
-    background-color: #fdf6ea !important;
+    background-color: black !important;
 }
+
+.nav-link {
+    color: white !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: white;
+    test-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#home-container {
+    margin-top: 60px;
+}
+
+.jumbotron {
+    background-image: asset-url('homepage.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: lightgrey;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}
+
+
+/* Other Classes for Page Styling */
 
 // important word will make the importance of the command in which it is used over others
