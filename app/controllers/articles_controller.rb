@@ -9,7 +9,7 @@ class ArticlesController<ApplicationController
     def index
         @a_index = Article.all
     end
-    
+     
     def new
         @article = Article.new 
     end 
