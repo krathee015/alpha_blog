@@ -10,8 +10,10 @@
                     <h5 class="card-title"><%= link_to a.title, article_path(a), class: "text-success "%></h5>
                     <p class="card-text"><%= truncate(a.description, length: 40) %></p>
                     <a href="#" ><%= link_to 'View', article_path(a), class: "btn btn-outline-success" %></a>
-                    <a href="#"><%= link_to 'Edit', edit_article_path(a), class: "btn btn-outline-info" %></a>
-                    <a href="#"><%= link_to 'Delete', article_path(a), class: "btn btn-outline-danger"%> </a>
+                    <% if logged_in? && a.user == current_user%>
+                        <a href="#"><%= link_to 'Edit', edit_article_path(a), class: "btn btn-outline-info" %></a>
+                        <a href="#"><%= link_to 'Delete', article_path(a), class: "btn btn-outline-danger"%> </a>
+                    <% end %>
                 </div>
                 <div class="card-footer text-muted">
                     <small> Created <%= time_ago_in_words(a.created_at) %> ago,
