@@ -21,7 +21,7 @@ class ArticlesController<ApplicationController
     def create
         #render plain: params[:article]
         @article = Article.new(article_pramas)
-        @article.user = User.first
+        @article.user = current_user
         #render plain: @a_create.inspect
         if @article.save
         #redirect_to article_path(@a_create)
