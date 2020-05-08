@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= @article.title%></h5>
                     <div class="card-text text-left"><%= simple_format(@article.description)   %></div>
-                    <% if logged_in? && @article.user ==current_user %>
+                    <% if logged_in? && (@article.user ==current_user || current_user.admin?) %>
                         <a href="#"><%= link_to 'Edit', edit_article_path(@article), class: "btn btn-outline-info" %></a>
                         <a href="#"><%= link_to 'Delete', article_path(@article), class: "btn btn-outline-danger"%> </a>
                     <% end %>

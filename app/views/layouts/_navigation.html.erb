@@ -30,12 +30,12 @@
       <% if logged_in?%>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Welcome <%= current_user.username%>
+            <%= "(Admin)" if current_user.admin? %> Welcome <%= current_user.username%>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "View Profile", user_path(current_user), class: "dropdown-item"%>  
             <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"%>
-            <%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" }%>
+            <%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "A re you sure?" }%>
           </div>
         </li>
         
