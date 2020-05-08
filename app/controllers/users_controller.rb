@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-
+    before_action :set_user, only: [:show, :edit, :update ]
+   
     def show
-        @user = User.find(params[:id])
+        
         @a_index = @user.articles.paginate(page: params[:page], per_page: 5)
     end
 
@@ -14,11 +15,11 @@ class UsersController < ApplicationController
     end 
 
     def edit
-        @user = User.find(params[:id])
+       
     end
 
     def update
-        @user = User.find(params[:id])
+        
         if @user.update(user_pramas)
             flash[:notice]= "User Account is updated successfully"
             redirect_to @user
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
        # @article.user = User.first
        
         if @user.save
-       
+            session[:user_id] = @user.id
             flash[:notice] = "Welcome to Alpha blog, #{@user.username} have successfully signed up"    
             redirect_to articles_path #shortcut 
         else 
@@ -48,6 +49,10 @@ class UsersController < ApplicationController
     private
     def user_pramas
         params.require(:user).permit(:username, :email, :password)
+    end
+
+    def set_user
+        @user = User.find(params[:id])
     end
 
 end
