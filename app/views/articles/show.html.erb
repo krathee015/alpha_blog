@@ -21,7 +21,13 @@
                     edited <%= time_ago_in_words(@article .updated_at) %> ago </small>
                 </div>
             </div>
+            <%= link_to article_path(@article), class: "btn btn-outline-primary" do%> <%= fa_icon "thumbs-o-up"%> <%end%>
+            <%= link_to article_path(@article), class: "btn btn-outline-danger" do%> <%= fa_icon "thumbs-o-down"%> <%end%>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </div>
-    
 </div>
