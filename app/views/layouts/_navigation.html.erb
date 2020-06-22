@@ -15,30 +15,31 @@
         <li class="nav-item">
           <%= link_to "Users", users_path, class: "nav-link"%>
         </li>
-      <%end%>
+      
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Articles
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <% if logged_in? %>
-            <%= link_to "Create New Article", new_article_path, class: "dropdown-item"%>
-          <%end%>
-          <%= link_to "View Articles", articles_path, class: "dropdown-item"%>
-        </div>
-      </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Articles
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if logged_in? %>
+              <%= link_to new_article_path, class: "dropdown-item" do%><%= fa_icon 'file-o'%> Create New Article <%end%>
+            <%end%>
+            <%= link_to articles_path, class: "dropdown-item" do%> <%= fa_icon 'file-text'%> View Articles <%end%>
+          </div>
+        </li>
+      <%end%>
     </ul>
     <ul class ="navbar-nav">
       <% if logged_in?%>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= "(Admin)" if current_user.admin? %> Welcome <%= current_user.username%>
+            <%= fa_icon 'user'  %><%= "(Admin)" if current_user.admin? %> Welcome <%= current_user.username%>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "View Profile", user_path(current_user), class: "dropdown-item"%>  
-            <%= link_to "Edit profile", edit_user_path(current_user), class: "dropdown-item"%>
-            <%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "A re you sure?" }%>
+            <%= link_to user_path(current_user), class: "dropdown-item" do %><%= fa_icon 'eye'  %> View Profile <%end%>
+            <%= link_to edit_user_path(current_user), class: "dropdown-item" do%> <%= fa_icon 'pencil-square-o'  %> Edit Profile <%end%>
+            <%= link_to user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "A re you sure?" } do%> <%= fa_icon 'trash-o'  %> Delete Profile <%end%>
           </div>
         </li>
         <li class="nav-item">
@@ -55,3 +56,4 @@
     </ul>
   </div>
 </nav>
+<%# https://fontawesome.com/v4.7.0/icons/ %>
