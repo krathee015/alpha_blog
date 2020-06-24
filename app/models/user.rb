@@ -3,6 +3,7 @@ class User < ApplicationRecord
     before_save { self. email = email.downcase }
     has_many :articles, dependent: :destroy
     has_many :likes, dependent: :destroy
+    has_many :dislikes, dependent: :destroy
 
     validates :username, presence: true, 
                         uniqueness: {case_sensitive: false}, 

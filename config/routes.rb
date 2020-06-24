@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   resources :articles do
     resources :likes
+    resources :dislikes
   end
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
