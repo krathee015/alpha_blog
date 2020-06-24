@@ -3,7 +3,7 @@ class DislikesController < ApplicationController
     before_action :find_article
   def create
     if already_liked?
-        flash[:notice] = "You can't dislike more than once"
+        flash[:alert] = "You can't dislike more than once"
       else
         @article.dislikes.create(user_id: current_user.id)
       end

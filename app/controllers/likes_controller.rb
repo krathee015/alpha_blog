@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     before_action :find_like, only: [:destroy]
     def create
       if already_liked?
-        flash[:notice] = "You can't like more than once"
+        flash[:alert] = "You can't like more than once"
       else
         likes = @article.likes.create(user_id: current_user.id)
         likes.save
