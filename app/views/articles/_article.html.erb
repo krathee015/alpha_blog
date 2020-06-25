@@ -3,7 +3,7 @@
     <div class= "row justify-content-md-center">
         <div class= "col-8 mt-4">
             <div class="card text-center shadow  mb-5 border-dark rounded">
-                <div class="card-header text-white bg-dark font-italic">
+                <div class="card-header text-white bar font-italic">
                     by <%= link_to a.user.username, user_path(a.user)%>
                 </div>
                 <div class="card-body">
@@ -15,7 +15,7 @@
                         <a href="#"><%= link_to 'Delete', article_path(a), class: "btn btn-outline-danger"%> </a>
                     <% end %>
                 </div>
-                <div class="card-footer text-white bg-dark text-muted">
+                <div class="card-footer text-white bar text-muted">
                     <small> Created <%= time_ago_in_words(a.created_at) %> ago,
                     edited <%= time_ago_in_words(a.updated_at) %> ago </small>
                 </div>

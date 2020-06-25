@@ -1,10 +1,9 @@
-
 <h2 class ="text-center mt-4"> Showing details of <%= @article.title%> </h2>
 <div class ="container">
     <div class= "row justify-content-md-center">
         <div class= "col-8 mt-4">
             <div class="card text-center shadow  mb-5 border-dark rounded">
-                <div class="card-header text-white bg-dark font-italic">
+                <div class="card-header text-white bar bg-dark font-italic">
                     by <%= @article.user.username%>
                     <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
                 </div>
@@ -16,20 +15,12 @@
                         <a href="#"><%= link_to 'Delete', article_path(@article), class: "btn btn-outline-danger"%> </a>
                     <% end %>
                 </div>
-                <div class="card-footer text-muted text-white bg-dark">
+                <div class="card-footer text-muted text-white bar">
                     <small> Created <%= time_ago_in_words(@article.created_at) %> ago,
                     edited <%= time_ago_in_words(@article .updated_at) %> ago </small>
                 </div>
             </div>
-        
-                <%= link_to article_likes_path(@article), class: "btn btn-outline-primary",method: :create do%> <%= fa_icon "thumbs-o-up"%> <%end%>
-                <%# <% if already_liked?%>
-                    <%# <%= link_to article_like_path(@article), class: "btn btn-outline-primary",method: :delete, data: {confirm: "Are you sure to unlike?"} do <%= fa_icon "thumbs-o-up"%> 
-                
-                    <%= link_to article_dislikes_path(@article), class: "btn btn-outline-danger", method: :create do%> <%= fa_icon "thumbs-o-down"%> <%end%>
-                <p><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%>
-                <%= @article.dislikes.count %> <%= (@article.dislikes.count) == 1 ? 'Dislike' : 'Dislikes'%></p>
-
+                <%= render 'likes/like'%>
             <div class="form-group">
                 <label for="comment">Comment:</label>
                 <textarea class="form-control" rows="5" id="comment"></textarea>
