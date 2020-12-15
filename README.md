@@ -1,5 +1,5 @@
 # README
-This is alpha_blog project created by Kanika Rathee
+This is alpha_blog project created by Kanika Rathee. This project have admin, customer and user with password and are link to each other.
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
